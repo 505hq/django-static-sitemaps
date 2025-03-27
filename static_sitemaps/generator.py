@@ -106,7 +106,7 @@ class SitemapGenerator(object):
                     'lastmod': lastmod
                 })
 
-        path = os.path.join(conf.ROOT_DIR, 'sitemap.xml')
+        path = 'sitemap.xml'
         self.out('Writing index file.', 2)
 
         if self.storage.exists(path):
@@ -144,7 +144,7 @@ class SitemapGenerator(object):
 
         lastmods = [lastmod for lastmod in [u.get('lastmod') for u in urls] if lastmod is not None]
         file_lastmod = max(lastmods) if len(lastmods) > 0 else None
-        path = os.path.join(conf.ROOT_DIR, filename)
+        path = filename
         template = getattr(site, 'sitemap_template', 'sitemap.xml')
 
         if self.storage.exists(path):
